@@ -1,4 +1,4 @@
-<%@page import="model.CourseType"%>
+﻿<%@page import="model.CourseType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="dao.NewsDAOImpl"%>
@@ -112,7 +112,7 @@
 									</div>
 									<div class="col-sm-4">
 										<form
-											action="<%=request.getContextPath()%>/AUDCourse?command=filter"
+											action=""
 											method="post">
 											<p>
 												Lọc theo : <span> <select
