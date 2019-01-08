@@ -1,0 +1,5 @@
+﻿*Tuần 1: 
+	-mô tả bài toán, mô tả chức năng nghiệp vụ
+	-vẻ use case diagram, mô tả từng use case
+*Tuần 2:
+	-vẽ lượt đồ activity

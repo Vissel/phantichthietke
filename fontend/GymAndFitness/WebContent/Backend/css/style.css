@@ -1,0 +1,104 @@
+body{
+	font-family: Arial;
+	color: black;
+	font-size: 14px
+}
+
+h1 {
+	text-align: center;
+}
+.dropdown {
+	width: 200px;
+}
+#mandatory{
+	color:red;
+}
+.button {
+	margin-top:50px;
+	margin-left: 160px;
+}
+#button-filter{
+	width: 60px;
+	height : 30px;
+	font-size: 16px;
+	color: white;
+	background-color : #000066;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#button-filter:hover{background-color: #0033cc}
+#button-search{
+	height : 30px;
+	font-size: 16px;
+	color: white;
+	background-color : #000066;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#button-search:hover{background-color: #0033cc}
+
+#button-create {
+	border-width: 0;
+	position: relative;
+	width: 140px;
+	height: 40px;
+	background-color: rgba(102, 102, 0, 1);
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+}
+#button-create:hover{
+	background-color: rgb(0, 153, 0);
+}
+#button-createUser {
+	border-width: 0;
+	position: relative;
+	width: 140px;
+	height: 40px;
+	background-color: rgba(255, 153, 0, 1);
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 700;
+	color: white;
+	cursor: pointer;
+}
+#button-createUser:hover {
+	background-color:	rgb(255, 255, 0);
+}
+#button-cancel {
+	border-width: 0;
+	position: relative;
+	width: 140px;
+	height: 40px;
+	background-color: #333333;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 700;
+	color: white;
+	cursor: pointer;
+}
+#button-cancel:hover{
+	background-color: rgb(128, 128, 128);
+}
+#button-OK {
+	border-width: 0;
+	position: relative;
+	width: 140px;
+	height: 40px;
+	background-color: rgba(204, 51, 0, 1);
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 700;
+	color: white;
+	cursor: pointer;
+}
+#button-OK:hover{
+	background-color: rgb(128, 128, 128);
+}
