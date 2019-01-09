@@ -30,7 +30,8 @@ public class CourseDAOImpl implements CourseDAO{
 		Course course ;
 		connection = ConnectDB.getConnection();
 		String sql = "SELECT c.COURSE_ID, c.COURSE_CODE, c.COURSE_NAME,c.COURSE_TYPE,c.START_DATE,c.END_DATE,c.TRAINER_ID,c.QUANLITY,c.FEE,u.USERS_NAME\r\n" + 
-				"FROM COURSE c LEFT JOIN USERS u ON c.TRAINER_ID = u.USERS_ID";
+				"FROM COURSE c LEFT JOIN USERS u ON c.TRAINER_ID = u.USERS_ID\r\n"
+				+ "WHERE c.COURSE_STATUS = 1";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
 			ResultSet rs = prepared.executeQuery();
@@ -95,7 +96,7 @@ public class CourseDAOImpl implements CourseDAO{
 		Course course = new Course();
 		connection = ConnectDB.getConnection();
 		String sql = "SELECT * FROM COURSE\r\n" + 
-				"WHERE COURSE_ID = ?";
+				"WHERE COURSE_ID = ? AND COURSE_STATUS = 1";
 		PreparedStatement prepared;
 		try {
 			prepared = connection.prepareStatement(sql);
@@ -159,7 +160,8 @@ public class CourseDAOImpl implements CourseDAO{
 	@Override
 	public void deleteCourse(int courseID) {
 		connection= ConnectDB.getConnection();
-		String sql = "DELETE FROM COURSE\r\n" + 
+		String sql = "UPDATE COURSE\r\n" + 
+				"SET COURSE_STATUS = 0\r\n" + 
 				"WHERE COURSE_ID = ?";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
@@ -178,7 +180,7 @@ public class CourseDAOImpl implements CourseDAO{
 		List<Course> filter = new ArrayList<>();
 		connection = ConnectDB.getConnection();
 		String sql = "SELECT * FROM COURSE\r\n" + 
-				"WHERE COURSE_TYPE = ?";
+				"WHERE COURSE_TYPE = ? AND COURSE_STATUS = 1";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
 			prepared.setInt(1, typeCourse);

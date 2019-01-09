@@ -6,6 +6,7 @@
 <%@page import="model.Role"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="model.Account" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,14 @@
 
 </head>
 <body>
+<%if(session != null){
+		Account account = (Account) session.getAttribute("account");
+		if(account != null && account.getUsername().equals("admin") && account.getPassword().equals("admin")){
+		}else{
+			response.sendRedirect(request.getContextPath()+"/Login_v3/login.jsp");
+		}
+	}
+		%>
 	<%
 		String message = (String) request.getParameter("message");
 		if (message != null) {
@@ -164,7 +173,7 @@
 												<td><%=u.getName()%></td>
 												<td><%=u.getPhone()%></td>
 												<td><%=u.getEmail()%></td>
-												<td><%=u.getCity()%>,<%=u.getTown()%></td>
+												<td><%=u.nameCityTown(u.getCity(), u.getTown())%></td>
 												<% for(Role role : dao.getRole()){
 													if(role.getRoleID() == u.getRoleID()){%>
 												<td><%=role.getRoleName() %></td>

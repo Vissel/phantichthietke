@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="model.Account" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
  <div class="main-navbar sticky-top bg-white">
             <!-- Main Navbar -->
             <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0" style="max-height: 60px;">
@@ -53,23 +55,30 @@
                     <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a>
                   </div>
                 </li>
+                 <%if(session != null){
+		Account account = (Account) session.getAttribute("account");
+		if(account != null){	
+		%>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="<%=request.getContextPath() %>/Backend/images/avatars/0.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block">Sierra Brooks</span>
+                    <span class="d-none d-md-inline-block"><%=account.getUsername() %></span>
+                     
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
-                    <a class="dropdown-item" href="user-profile-lite.html">
+                    <a class="dropdown-item" href="#">
                       <i class="material-icons">&#xE7FD;</i> Profile</a>
-                    <a class="dropdown-item" href="components-blog-posts.html">
+                    <a class="dropdown-item" href="#">
                       <i class="material-icons">vertical_split</i> Blog Posts</a>
-                    <a class="dropdown-item" href="add-new-post.html">
+                    <a class="dropdown-item" href="#">
                       <i class="material-icons">note_add</i> Add New Post</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/Login?command=logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
                 </li>
+                <%}} %>
+               
               </ul>
               <nav class="nav">
                 <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
@@ -78,5 +87,6 @@
               </nav>
             </nav>
           </div>
+         
 </body>
 </html>

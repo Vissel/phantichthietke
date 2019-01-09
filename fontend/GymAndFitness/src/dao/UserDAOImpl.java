@@ -86,7 +86,7 @@ public class UserDAOImpl implements UserDAO {
 
 			if (listUser == null)
 				listUser = new ArrayList<Users>();
-			String sql = "SELECT * FROM USERS";
+			String sql = "SELECT * FROM USERS WHERE USERS_STATUS = 1";
 
 			try {
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -124,7 +124,7 @@ public class UserDAOImpl implements UserDAO {
 	public Users getOneUser(String userID) {
 		Connection connection = ConnectDB.getConnection();
 		Users u = new Users();
-		String sql = "SELECT * FROM USERS WHERE USERS_ID = ?";
+		String sql = "SELECT * FROM USERS WHERE USERS_ID = ? AND USERS_STATUS = 1";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
 			prepared.setInt(1, Integer.parseInt(userID));
@@ -223,7 +223,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void deleteUser(int userID) {
 		connection = ConnectDB.getConnection();
-		String sql = "DELETE FROM USERS WHERE USERS_ID = ?";
+		String sql = "UPDATE USERS\r\n" + 
+				"SET USERS_STATUS = 0\r\n" + 
+				"WHERE USERS_ID = ?";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
 			prepared.setInt(1, userID);
@@ -241,7 +243,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<Users> filterUser(String typeUser)  {
 		connection = ConnectDB.getConnection();
-		String sql = "SELECT * FROM USERS WHERE USERS_ROLE = ?";
+		String sql = "SELECT * FROM USERS WHERE USERS_ROLE = ? AND USERS_STATUS = 1";
 		PreparedStatement prepared;
 		List<Users> list = new ArrayList<>();
 		try {

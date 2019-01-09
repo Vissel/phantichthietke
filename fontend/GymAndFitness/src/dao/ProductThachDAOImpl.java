@@ -20,7 +20,7 @@ private static Connection connect ;
 	public List<ProductThach> listProduct() {
 		List<ProductThach> listProduct = new ArrayList<>();
 		connect = ConnectDB.getConnection();
-		String sql = "SELECT * FROM PRODUCT";
+		String sql = "SELECT * FROM PRODUCT WHERE PRODUCT_STATUS = 1";
 		try {
 			PreparedStatement prepared = connect.prepareStatement(sql);
 			ResultSet rs = prepared.executeQuery();
@@ -77,7 +77,7 @@ private static Connection connect ;
 	public ProductThach getOneProduct(int productID) {
 		ProductThach product = new ProductThach();
 		connect = ConnectDB.getConnection();
-		String sql = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ?";
+		String sql = "SELECT * FROM PRODUCT WHERE PRODUCT_ID = ? AND PRODUCT_STATUS = 1";
 		try {
 			PreparedStatement prepared = connect.prepareStatement(sql);
 			prepared.setInt(1, productID);
@@ -134,8 +134,9 @@ private static Connection connect ;
 	@Override
 	public void deleteProduct(int productID) {
 		connect = ConnectDB.getConnection();
-		String sql = "DELETE FROM PRODUCT\r\n" + 
-				"WHERE PRODUCT_ID =?";
+		String sql = "UPDATE PRODUCT\r\n" + 
+				"SET PRODUCT_STATUS = 0\r\n" + 
+				"WHERE PRODUCT_ID = ?";
 		try {
 			PreparedStatement prepared = connect.prepareStatement(sql);
 			prepared.setInt(1, productID);

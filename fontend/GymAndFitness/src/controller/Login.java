@@ -20,25 +20,30 @@ import model.Account;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final LoginDAOImpl dao = new LoginDAOImpl();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String command = request.getParameter("command");
 		String username = request.getParameter("username");
 		String pass = request.getParameter("pass");
@@ -46,16 +51,22 @@ public class Login extends HttpServlet {
 		account.setUsername(username);
 		account.setPassword(pass);
 		HttpSession session = request.getSession();
-		
+
 		String url = "";
 		switch (command) {
 		case "login":
 			boolean checkLogin = dao.checkLogin(account);
-			if(checkLogin) {
-				session.setAttribute("account", account);
-				session.setMaxInactiveInterval(10);
-				url = "Backend/backend.jsp";
-			}else {
+			if (checkLogin) {
+				if (account.getUsername().equals("admin") && account.getPassword().equals("admin")) {
+					session.setAttribute("account", account);
+					session.setMaxInactiveInterval(500);
+					url = "Backend/backend.jsp";
+				} else {
+					session.setAttribute("account", account);
+					session.setMaxInactiveInterval(500);
+					url = "index.jsp";
+				}
+			} else {
 				url = "Login_v3/login.jsp";
 			}
 			break;
