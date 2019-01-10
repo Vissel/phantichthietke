@@ -212,9 +212,9 @@
 	function delProduct(id){
 	   $("#btn-del").attr("href","<%=request.getContextPath()%>/AUDProduct?command=delete&productID="+id);
 	}
-	function myFuction(){
-	$(document).ready(function(){
-		  $("#myInput").on("keyup", function() {
+	function myFunction() {
+		$(document).ready(function(){
+			  $("#myInput").on("keyup", function() {
 			    var value = $(this).val().toLowerCase();
 			    $("#myTable tr").filter(function() {
 			      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)

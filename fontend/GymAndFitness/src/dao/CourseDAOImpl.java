@@ -29,7 +29,7 @@ public class CourseDAOImpl implements CourseDAO{
 		List<Course> listCourse = new ArrayList<Course>();
 		Course course ;
 		connection = ConnectDB.getConnection();
-		String sql = "SELECT c.COURSE_ID, c.COURSE_CODE, c.COURSE_NAME,c.COURSE_TYPE,c.START_DATE,c.END_DATE,c.TRAINER_ID,c.QUANLITY,c.FEE,u.USERS_NAME\r\n" + 
+		String sql = "SELECT c.COURSE_ID, c.COURSE_CODE, c.COURSE_NAME,c.COURSE_TYPE,c.START_DATE,c.END_DATE,c.TRAINER_ID,c.QUANTITY,c.FEE,u.USERS_NAME\r\n" + 
 				"FROM COURSE c LEFT JOIN USERS u ON c.TRAINER_ID = u.USERS_ID\r\n"
 				+ "WHERE c.COURSE_STATUS = 1";
 		try {
@@ -64,7 +64,7 @@ public class CourseDAOImpl implements CourseDAO{
 	public void addCourse(Course course) {
 		connection = ConnectDB.getConnection();
 		
-		String sql = "INSERT INTO COURSE(COURSE_CODE,COURSE_NAME,COURSE_DESCRIPTION,COURSE_TYPE,START_DATE,END_DATE,TRAINER_ID,QUANLITY,ACTOR,FEE,CITY,TOWN,ADDRESS)\r\n" + 
+		String sql = "INSERT INTO COURSE(COURSE_CODE,COURSE_NAME,COURSE_DESCRIPTION,COURSE_TYPE,START_DATE,END_DATE,TRAINER_ID,QUANTITY,ACTOR,FEE,CITY,TOWN,ADDRESS)\r\n" + 
 				"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
@@ -130,7 +130,7 @@ public class CourseDAOImpl implements CourseDAO{
 	public void updateCourse(Course course, int courseID) {
 		connection = ConnectDB.getConnection();
 		String sql = "UPDATE COURSE "
-				+ "SET COURSE_CODE=?,COURSE_NAME=?,COURSE_DESCRIPTION=?,COURSE_TYPE=?,START_DATE=?,END_DATE=?,TRAINER_ID=?,QUANLITY=?,ACTOR=?,FEE=?,CITY=?,TOWN=?,ADDRESS=? "
+				+ "SET COURSE_CODE=?,COURSE_NAME=?,COURSE_DESCRIPTION=?,COURSE_TYPE=?,START_DATE=?,END_DATE=?,TRAINER_ID=?,QUANTITY=?,ACTOR=?,FEE=?,CITY=?,TOWN=?,ADDRESS=? "
 				+ "WHERE COURSE_ID = ?";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
@@ -179,7 +179,7 @@ public class CourseDAOImpl implements CourseDAO{
 	public List<Course> filterCourse(int typeCourse) {
 		List<Course> filter = new ArrayList<>();
 		connection = ConnectDB.getConnection();
-		String sql = "SELECT * FROM COURSE\r\n" + 
+		String sql = "SELECT * FROM COURSE c INNER JOIN USERS u ON c.TRAINER_ID = u.USERS_ID\r\n" + 
 				"WHERE COURSE_TYPE = ? AND COURSE_STATUS = 1";
 		try {
 			PreparedStatement prepared = connection.prepareStatement(sql);
@@ -202,6 +202,7 @@ public class CourseDAOImpl implements CourseDAO{
 				course.setCity(rs.getInt(12));
 				course.setTown(rs.getInt(13));
 				course.setAddress(rs.getString(14));
+				course.setTrainerName(rs.getString(18));
 				filter.add(course);
 			}
 			prepared.close();
