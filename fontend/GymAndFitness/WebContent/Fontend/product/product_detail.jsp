@@ -1,6 +1,6 @@
 <%@page import="dao.Product_DAO"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="dao.ConnectDB"%>
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -165,7 +165,7 @@
                                  	</div>
                         			</div>
 										</div>
-										<p><a href="cart.jsp?id=<%rs.getString(1);%>" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
+										<p><a href="<%=request.getContextPath()%>/ProcessProduct?command=add&product_id=<%=rs.getString(1)%>" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
 									</div>
 								</div>
 							</div>

@@ -124,7 +124,7 @@
         <div class="row no-gutters">
           <div class="col-md-6">
             <div class="sched d-block d-lg-flex">
-              <div class="bg-image order-2" style="background-image: url('./img/gym4.jpg');"></div>
+              <div class="bg-image order-2" style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym4.jpg');"></div>
               <div class="text order-1">
                 <h3>Fitness Class Name Here</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
@@ -139,7 +139,7 @@
             </div>
 
             <div class="sched d-block d-lg-flex">
-              <div class="bg-image" style="background-image: url('./img/gym2.jpg');"></div>
+              <div class="bg-image" style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym2.jpg');"></div>
               <div class="text">
                 <h3>Fitness Class Name Here</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
@@ -157,7 +157,7 @@
 
           <div class="col-md-6">
             <div class="sched d-block d-lg-flex">
-              <div class="bg-image order-2" style="background-image: url('./img/gym3.jpg');"></div>
+              <div class="bg-image order-2" style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym3.jpg');"></div>
               <div class="text order-1">
                 <h3>Fitness Class Name Here</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
@@ -172,7 +172,7 @@
             </div>
 
             <div class="sched d-block d-lg-flex">
-              <div class="bg-image" style="background-image: url('./img/gym5.jpg');"></div>
+              <div class="bg-image" style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym5.jpg');"></div>
               <div class="text">
                 <h3>Fitness Class Name Here</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus...</p>
@@ -343,7 +343,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="blog d-block d-lg-flex">
-              <div class="bg-image" style="background-image: url('./img/gym3.jpg');"></div>
+              <div class="bg-image" style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym3.jpg');"></div>
               <div class="text">
                 <h3>Fitness Class Name Here</h3>
                 <p class="sched-time">
@@ -359,7 +359,7 @@
           </div>
           <div class="col-md-6">
             <div class="blog d-block d-lg-flex">
-              <div class="bg-image" style="background-image: url('./img/gym5.jpg');"></div>
+              <div class="bg-image" style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym5.jpg');"></div>
               <div class="text">
                 <h3>Fitness Class Name Here</h3>
                 <p class="sched-time">

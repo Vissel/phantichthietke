@@ -78,52 +78,29 @@
 				<!--  <li class="nav-item" style=" margin-left: 5px;">
                 <a class="nav-link" href="<%=request.getContextPath()%>/Fontend/product/buyProduct1.jsp">Product</a>
               </li> -->
-<<<<<<< HEAD
+
               <li class="nav-item" style=" margin-left: 5px; ">
                 <a class="nav-link" href="<%=request.getContextPath()%>/Fontend/notification/notification.jsp">Notification</a>
               </li>
               <li class="nav-item" style=" margin-left: 5px;">
                 <a class="nav-link" href="<%=request.getContextPath()%>/Fontend/contact/contact.jsp">Contact</a>
               </li>
-            </ul>
+              
+				
+			</ul>
 
-           <!--  <ul class="navbar-nav ml-auto"> -->
-            <img  style="width: 25px;height: 25 px; margin-right: 70px;" src="<%=request.getContextPath()%>/Fontend/img/img.png">
-              <!-- <li class="nav-item cta-btn">
-                <a class="nav-link" href="<%=request.getContextPath()%>/Fontend/login/css_Login/sign_Up.jsp">Become a member</a>
-              </li> -->
-           <!--   <li class="nav-item cta-btn">
-                <a  style="background:#29aaaa" class="nav-link" href="<%=request.getContextPath()%>/Fontend/login/login.jsp">Login</a>
-              </li>
-              -->
-            <!-- </ul> -->
-            
-          </div>
-      
-       
-        </div>
-         
-      </nav>
-  
-    </header>
+			
+
+             <ul class="navbar-nav ml-auto">
+				<li class="nav-item cta-btn"><a class="nav-link"
+					href="/Fontend/login/css_Login/sign_Up.jsp">Become
+						a member</a></li>
+ 
+			
   <!-- loader -->
   
   
-=======
-				<li class="nav-item" style="margin-left: 5px;"><a
-					class="nav-link"
-					href="<%=request.getContextPath()%>/Fontend/notification/notification.jsp">Notification</a>
-				</li>
-				<li class="nav-item" style="margin-left: 5px;"><a
-					class="nav-link"
-					href="<%=request.getContextPath()%>/Fontend/contact/contact.jsp">Contact</a>
-				</li>
-			</ul>
 
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item cta-btn"><a class="nav-link"
-					href="<%=request.getContextPath()%>/Fontend/login/css_Login/sign_Up.jsp">Become
-						a member</a></li>
  <%if(session != null){
 		Account account = (Account) session.getAttribute("account");
 		if(account != null){	
@@ -162,6 +139,5 @@
 	<!-- loader -->
 
 
->>>>>>> d53a7a02c5b4b19b361222e50d0189bd532f06c5
 </body>
 </html>

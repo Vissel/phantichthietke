@@ -61,11 +61,12 @@ public class Login extends HttpServlet {
 					session.setAttribute("account", account);
 					session.setMaxInactiveInterval(500);
 					url = "Backend/backend.jsp";
-				} else {
+				} else  {
 					session.setAttribute("account", account);
 					session.setMaxInactiveInterval(500);
 					url = "index.jsp";
 				}
+				
 			} else {
 				url = "Login_v3/login.jsp";
 			}

@@ -41,7 +41,7 @@ public class Cart_DAO {
 
 				if (shopping_cart.get(i).getId() == id) {
 					shopping_cart.get(i).setQuantity(shopping_cart.get(i).getQuantity() + 1);
-					shopping_cart.get(i).setPrice(shopping_cart.get(i).getPrice() + shopping_cart.get(i).getPrice());
+					
 					index = i;
 				}
 

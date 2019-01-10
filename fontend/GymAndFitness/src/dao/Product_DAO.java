@@ -38,6 +38,7 @@ public class Product_DAO {
 				product.setQuantity(Integer.parseInt(rs.getString("PRODUCT_Quantity")));
 				product.setStatus(Integer.parseInt(rs.getString("PRODUCT_STATUS")));
 				product.setType(Integer.parseInt(rs.getString("PRODUCT_Type")));
+				
 				list.add(product);
 				
 				

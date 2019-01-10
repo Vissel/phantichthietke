@@ -214,5 +214,15 @@ public class CourseDAOImpl implements CourseDAO{
 		
 		return filter;
 	}
+	//linh
+	public ResultSet searchForId(String id) throws Exception {
+		ConnectDB connect = new ConnectDB();
+		connection = connect.getConnection();
+		PreparedStatement prepared = connection.prepareStatement("select * from COURSE where COURSE_ID= ?");
+		prepared.setInt(1, Integer.parseInt(id));
+		ResultSet rs = prepared.executeQuery();
+		return rs;
+		
+	}
 	
 }

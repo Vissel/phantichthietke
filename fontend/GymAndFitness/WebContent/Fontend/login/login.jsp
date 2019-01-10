@@ -15,7 +15,7 @@
 	<div class="background"
 		style="background-image: url('../img/bg-01.jpg');">
 		<div class="wrap-login100">
-			<form class="form">
+			<form class="form" method="post" action="<%=request.getContextPath()%>/LoginforShop?command=login">
 
 				<img src="../img/user_128x117.png" class="logo"> 
 				<br>
@@ -33,8 +33,11 @@
 						name="remember-me"> <label class="label-checkbox100"
 						for="ckb1"> Remember me </label>
 				</div>
-				<input type="submit" value="Login" class="button">
-
+				<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Đăng nhập
+						</button>
+					</div>
 				<div class="text-center p-t-90">
 					<a class="txt1" href="<%=request.getContextPath()%>/Fontend/login/forgot_P.jsp"> Forgot Password? </a>
 				</div>

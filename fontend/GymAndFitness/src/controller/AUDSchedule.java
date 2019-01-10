@@ -47,6 +47,12 @@ public class AUDSchedule extends HttpServlet {
 		String url="";
 		
 		switch (command) {
+		case "cancel":
+			url = "Fontend/schedule/schedule_detail.jsp?message=cancel";
+			break;
+		case "register":
+			url = "Fontend/schedule/schedule_detail.jsp?message=register";
+			break;
 		case "filter":
 			dao.getSchedule(Integer.parseInt(month),Integer.parseInt(year));
 			request.setAttribute("message", "filter");

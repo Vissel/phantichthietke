@@ -1,3 +1,4 @@
+
 <%@page import="model.Cart"%>
 <%@page import="javax.smartcardio.Card"%>
 <%@page import="dao.Product_DAO"%>
@@ -128,8 +129,11 @@
 										<span> </span>
 									</p>
 								</div>
+							
 							</div>
+						
 						</div>
+							
 						<%
 							}
 						%>

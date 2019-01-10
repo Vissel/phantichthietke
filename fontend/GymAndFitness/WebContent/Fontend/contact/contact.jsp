@@ -39,7 +39,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <form action="#" method="post">
+            <form  >
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="name">Name</label>

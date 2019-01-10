@@ -89,7 +89,7 @@
 		<%@include file="/Fontend/menu/menu.jsp"%>
 		<%
 		ArrayList<Product> cart= new Cart_DAO().getShopping_cart();
-			
+		int total=0;
 		%>
 
 
@@ -170,6 +170,7 @@
 
 						<%
 							for(int i= 0; i<cart.size();i++){
+								int sum=0;
 								
 								%>
 
@@ -194,12 +195,14 @@
 								<div class="display-tc">
 									<input type="text" id="quantity" name="quantity"
 										class="form-control input-number text-center"
-										value="<%out.print(cart.get(i).getQuantity());%>">
+										value="1">
 								</div>
 							</div>
+							
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price">$120.00</span>
+								<% sum+=cart.get(i).getPrice();%>
+									<span class="price"><%=sum%></span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -208,7 +211,9 @@
 								</div>
 							</div>
 						</div>
+						
 						<%
+							total+=cart.get(i).getPrice();
 							}
 						%>
 
@@ -232,25 +237,26 @@
 												<input type="submit" value="Apply Coupon"
 													class="btn btn-primary">
 											</div>
-										</div>
+										<a href="<%=request.getContextPath()%>/Fontend/product/checkout.jsp">	<button style="margin-top: 50px; margin-left: 300px;" type="button" class="btn btn-info">Tiếp tục</button>
+						</a>				</div>
 									</form>
 								</div>
 								<div class="col-md-3 col-md-push-1 text-center">
 									<div class="total">
 										<div class="sub">
 											<p>
-												<span>Subtotal:</span> <span>$200.00</span>
+												<span>Subtotal:</span> <span>20000</span>
 											</p>
 											<p>
-												<span>Delivery:</span> <span>$0.00</span>
+												<span>Delivery:</span> <span>0</span>
 											</p>
 											<p>
-												<span>Discount:</span> <span>$45.00</span>
+												<span>Discount:</span> <span>0</span>
 											</p>
 										</div>
 										<div class="grand-total">
 											<p>
-												<span><strong>Total:</strong></span> <span>$450.00</span>
+												<span><strong>Total:</strong></span> <span><%=total %></span>
 											</p>
 										</div>
 									</div>
@@ -293,7 +299,7 @@
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a
-											href="cart.jsp?id=<%=rs1.getString(1)%>"><i
+											href="<%=request.getContextPath()%>/ProcessProduct?command=add&product_id=<%=rs1.getString(1)%>"><i
 												class="icon-shopping-cart"></i></a></span> <span><a
 											href="product_detail.jsp?id=<%=rs1.getString(1)%>"><i
 												class="icon-eye"></i></a></span> <span><a href="#"><i
