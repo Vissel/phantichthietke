@@ -20,7 +20,7 @@ private static Connection connect;
 	public List<News> listAllNews() {
 		List<News> listNews = new ArrayList<>();
 		connect = ConnectDB.getConnection();
-		String sql = "SELECT * FROM NEWS";
+		String sql = "SELECT * FROM NEWS WHERE NEWS_STATUS =1";
 		try {
 			PreparedStatement prepared = connect.prepareStatement(sql);
 			ResultSet rs = prepared.executeQuery();

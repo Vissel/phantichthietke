@@ -19,12 +19,13 @@
   <body class="h-100">
    <%if(session != null){
 		Account account = (Account) session.getAttribute("account");
-		if(account != null && account.getUsername().equals("admin")){
+		if(account != null && account.getUsername().equals("admin") && account.getPassword().equals("admin")){
 		}else{
 			response.sendRedirect(request.getContextPath()+"/Login_v3/login.jsp");
 		}
 	}
 		%>
+		
     <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
     </div>

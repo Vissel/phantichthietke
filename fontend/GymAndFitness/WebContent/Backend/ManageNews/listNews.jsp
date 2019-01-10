@@ -1,4 +1,4 @@
-<%@page import="model.CourseType"%>
+﻿<%@page import="model.CourseType"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="dao.NewsDAOImpl"%>
@@ -7,6 +7,7 @@
 <%@page import="model.NewsType"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+    <%@page import="model.Account" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +39,14 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
+ <%if(session != null){
+		Account account = (Account) session.getAttribute("account");
+		if(account != null && account.getUsername().equals("admin") && account.getPassword().equals("admin")){
+		}else{
+			response.sendRedirect(request.getContextPath()+"/Login_v3/login.jsp");
+		}
+	}
+		%>
 	<%
 		String message = (String) request.getParameter("message");
 		if (message != null) {
@@ -112,7 +121,7 @@
 									</div>
 									<div class="col-sm-4">
 										<form
-											action="<%=request.getContextPath()%>/AUDCourse?command=filter"
+											action=""
 											method="post">
 											<p>
 												Lọc theo : <span> <select
