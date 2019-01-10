@@ -7,6 +7,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -111,9 +112,9 @@
 									<div class="cart">
 										<p>
 											<span class="addtocart"><a
-												href="<%=request.getContextPath()%>/ProcessProduct?product_id=<%=p.getId()%>"><i
+												href="<%=request.getContextPath()%>/ProcessProduct?command=add&product_id=<%=p.getId()%>"><i
 													class="icon-shopping-cart"></i></a></span> 
-														<span><a href=""><i class="icon-eye"></i></a></span> 
+														<span><a href="product_detail.jsp?id=<%=p.getId() %>"><i class="icon-eye"></i></a></span> 
 													 <span><a href="#"><i
 													class="icon-heart3"></i></a></span> <span>
 										</p>

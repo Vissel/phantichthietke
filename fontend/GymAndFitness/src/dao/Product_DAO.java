@@ -22,7 +22,6 @@ public class Product_DAO {
 	public ArrayList<Product> getList() {
 		Connection connect= (Connection) ConnectDB.getConnection();
 		String sql="select * from PRODUCT";
-		ArrayList<Product> list= new ArrayList<Product>();
 		try {
 			PreparedStatement prepar= connect.prepareStatement(sql);
 			ResultSet rs= prepar.executeQuery();
@@ -69,6 +68,7 @@ public class Product_DAO {
 		PreparedStatement prepared = connection.prepareStatement("select * from PRODUCT");
 		ResultSet rs = prepared.executeQuery();
 		return rs;
+		
 	}
 	public ResultSet searchForId(String id) throws Exception {
 		ConnectDB connect = new ConnectDB();
@@ -113,8 +113,10 @@ public class Product_DAO {
 		boolean check= checkProductInShoppingCart(id);
 		for (int i = 0; i < list.size(); i++) {
 			String id1= list.get(i).getId()+"";
+			System.out.println(id1);
 			if(id1.equals(id)&&check==false) {
 			shopping_cart.add(list.get(i));
+			
 			return true;
 			
 		}
@@ -152,6 +154,7 @@ public class Product_DAO {
 	public static void main(String[] args) throws Exception {
 		Product_DAO dao = new Product_DAO();
 		System.out.println(dao.addShoppingCart("2"));
-		System.out.println(dao.getList());
+		
+		
 	}
 }

@@ -7,7 +7,7 @@
 <title>Home</title>
 </head>
 <body>
-<%@include file="/Fontend/menu/menu.jsp"%>
+
 <%@include file="/Fontend/home/home.jsp" %>
 
 

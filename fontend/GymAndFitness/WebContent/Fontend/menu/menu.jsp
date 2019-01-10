@@ -68,15 +68,16 @@
               </li>
             </ul>
 
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item cta-btn">
+           <!--  <ul class="navbar-nav ml-auto"> -->
+            <img  style="width: 25px;height: 25 px; margin-right: 70px;" src="<%=request.getContextPath()%>/Fontend/img/img.png">
+              <!-- <li class="nav-item cta-btn">
                 <a class="nav-link" href="<%=request.getContextPath()%>/Fontend/login/css_Login/sign_Up.jsp">Become a member</a>
-              </li>
-             <li class="nav-item cta-btn">
+              </li> -->
+           <!--   <li class="nav-item cta-btn">
                 <a  style="background:#29aaaa" class="nav-link" href="<%=request.getContextPath()%>/Fontend/login/login.jsp">Login</a>
               </li>
-             
-            </ul>
+              -->
+            <!-- </ul> -->
             
           </div>
       

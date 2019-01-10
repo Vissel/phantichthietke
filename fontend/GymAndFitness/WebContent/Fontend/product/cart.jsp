@@ -1,3 +1,4 @@
+<%@page import="dao.Cart_DAO"%>
 <%@page import="model.Cart"%>
 <%@page import="dao.Product_DAO"%>
 <%@page import="model.Product"%>
@@ -87,14 +88,8 @@
 
 		<%@include file="/Fontend/menu/menu.jsp"%>
 		<%
-			Cart cart = (Cart) session.getAttribute("cart");
-			if (cart == null) {
-				cart = new Cart();
-				session.setAttribute("cart", cart);
-			}
-			TreeMap<Product, Integer> list = cart.getCart();
-			NumberFormat nf = NumberFormat.getInstance();
-			nf.setMinimumIntegerDigits(0);
+		ArrayList<Product> cart= new Cart_DAO().getShopping_cart();
+			
 		%>
 
 
@@ -150,6 +145,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 				<div class="row row-pb-md">
 					<div class="col-md-10 col-md-offset-1">
 						<div class="product-name">
@@ -172,24 +169,24 @@
 						<!-- phần product cart -->
 
 						<%
-							for (Map.Entry<Product, Integer> entry : list.entrySet()) {
-						%>
-
+							for(int i= 0; i<cart.size();i++){
+								
+								%>
 
 						<div class="product-cart">
 							<div class="one-forth">
 								<div class="product-img">
 
-									<img style="width: 280px; height: 350px;"
-										src="<%=entry.getKey().getUrl()%>">
+									<img style="width: 100px; height: 100px;"
+										src="<%out.print(cart.get(i).getUrl());%>">
 								</div>
 								<div class="display-tc">
-									<h3><%=entry.getKey().getName()%></h3>
+									<h3><%out.print(cart.get(i).getName());%></h3>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price"><%=nf.format(entry.getKey().getPrice())%>
+									<span class="price"><%out.print(cart.get(i).getPrice()); %>
 										VND</span>
 								</div>
 							</div>
@@ -197,7 +194,7 @@
 								<div class="display-tc">
 									<input type="text" id="quantity" name="quantity"
 										class="form-control input-number text-center"
-										value="<%=entry.getKey().getQuantity()%>">
+										value="<%out.print(cart.get(i).getQuantity());%>">
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -207,7 +204,7 @@
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<a href="#" class="closed"></a>
+									<a href="<%=request.getContextPath()%>/ProcessProduct?command=delete&product_id=<%=cart.get(i).getId() %>" class="closed"></a>
 								</div>
 							</div>
 						</div>
@@ -216,7 +213,9 @@
 						%>
 
 					</div>
+					
 				</div>
+				
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
 						<div class="total-wrap">

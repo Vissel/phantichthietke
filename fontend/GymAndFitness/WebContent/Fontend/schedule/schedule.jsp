@@ -74,12 +74,12 @@
 <body>
 	<%@include file="/Fontend/menu/menu.jsp"%>
 
-	<div class="topnav">
+<!-- 	<div class="topnav">
 
 		<input type="text" placeholder="Search.."> <img
 			style="width: 10%; margin-left: 430px; margin-top: 15px; position: absolute;"
 			alt="" src="<%=request.getContextPath()%>/Fontend/img/iconsearch.jpg">
-	</div>
+	</div> -->
 	<section style="z-index:-2" class="section bg-light element-animate">
 
 	<div class="clearfix mb-5 pb-5">
@@ -101,7 +101,7 @@
 					<div class="bg-image order-2"
 						style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym4.jpg');"></div>
 					<div class="text order-1">
-						<h3>Fitness Class Name Here</h3>
+						<h3>Khóa học 1</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							Architecto illo delectus...</p>
 						<p class="sched-time">
@@ -110,7 +110,7 @@
 							<br>
 						</p>
 						<p>
-							<a href="#" class="btn btn-primary btn-sm">Join from
+							<a href="<%=request.getContextPath()%>/Fontend/schedule/schedule_detail.jsp" class="btn btn-primary btn-sm">Join from
 								150.000vnd</a>
 						</p>
 
@@ -122,7 +122,7 @@
 					<div class="bg-image"
 						style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym2.jpg');"></div>
 					<div class="text">
-						<h3>Fitness Class Name Here</h3>
+						<h3>Khóa học 2</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							Architecto illo delectus...</p>
 						<p class="sched-time">
@@ -131,7 +131,7 @@
 							<br>
 						</p>
 						<p>
-							<a href="#" class="btn btn-primary btn-sm">Join from
+							<a href="<%=request.getContextPath()%>/Fontend/schedule/schedule_detail.jsp" class="btn btn-primary btn-sm">Join from
 								150.000vnd</a>
 						</p>
 
@@ -146,7 +146,7 @@
 					<div class="bg-image order-2"
 						style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym3.jpg');"></div>
 					<div class="text order-1">
-						<h3>Fitness Class Name Here</h3>
+						<h3>Khóa học 3</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							Architecto illo delectus...</p>
 						<p class="sched-time">
@@ -155,7 +155,7 @@
 							<br>
 						</p>
 						<p>
-							<a href="#" class="btn btn-primary btn-sm">Join from
+							<a href="<%=request.getContextPath()%>/Fontend/schedule/schedule_detail.jsp" class="btn btn-primary btn-sm">Join from
 								150.000vnd</a>
 						</p>
 
@@ -167,7 +167,7 @@
 					<div class="bg-image"
 						style="background-image: url('<%=request.getContextPath()%>/Fontend/img/gym5.jpg');"></div>
 					<div class="text">
-						<h3>Fitness Class Name Here</h3>
+						<h3>Khóa học 4</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
 							Architecto illo delectus...</p>
 						<p class="sched-time">
@@ -176,7 +176,7 @@
 							<br>
 						</p>
 						<p>
-							<a href="#" class="btn btn-primary btn-sm">Join from
+							<a href="<%=request.getContextPath()%>/Fontend/schedule/schedule_detail.jsp" class="btn btn-primary btn-sm">Join from
 								150.000vnd</a>
 						</p>
 
