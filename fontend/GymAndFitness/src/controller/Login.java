@@ -73,8 +73,7 @@ public class Login extends HttpServlet {
 			break;
 
 		case "logout":
-			session.removeAttribute("account");
-			session.getMaxInactiveInterval();
+			session.invalidate();
 			url = "Login_v3/login.jsp";
 			break;
 		default:

@@ -93,7 +93,7 @@
 
              <ul class="navbar-nav ml-auto">
 				<li class="nav-item cta-btn"><a class="nav-link"
-					href="/Fontend/login/css_Login/sign_Up.jsp">Become
+					href="Fontend/login/css_Login/sign_Up.jsp">Become
 						a member</a></li>
  
 			
